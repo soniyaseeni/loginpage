@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
-class signup : AppCompatActivity() {
+class signupActivity : AppCompatActivity() {
 
     private val sharedPrefFile = "login"
     @SuppressLint("WrongViewCast")
@@ -39,11 +39,15 @@ class signup : AppCompatActivity() {
             val email = emailid.text;
             val mobile = mobile.text;
             val password = pass.text;
-            Toast.makeText(this@signup, "saved sucessfully", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@signupActivity, "saved sucessfully", Toast.LENGTH_LONG).show()
 
-            val name:String = name.text.toString()
+            val name:String = user_name.toString()
+            val spassword:String = password.toString()
+
+
             val editor:SharedPreferences.Editor =  sharedPreferences.edit()
             editor.putString("name_key",name)
+            editor.putString("password",spassword)
 
             editor.apply()
             editor.commit()
